@@ -100,13 +100,16 @@ function toggleMenu(){
     clearTimeout(scrollTimer);
     //Set new timer
     scrollTimer = window.setTimeout(changeVisibility, 40);
-    console.log(scrollTimer);
-
 }
 
 function changeVisibility(){
     const navMenu = document.getElementsByClassName("navbar__menu")[0];
     navMenu.style.display = 'none';
+}
+
+function makeMenuVisible(){
+    const navMenu = document.getElementsByClassName("navbar__menu")[0];
+    navMenu.removeAttribute("style");
 }
 
 /**
@@ -130,6 +133,8 @@ document.addEventListener("scroll", updateActiveSection);
 // Hide menu when user stops scrolling
 document.addEventListener("scroll", toggleMenu);
 
+// Re Show Menu on Mouse Movement
+document.addEventListener("mousemove", makeMenuVisible);
 
 
 
